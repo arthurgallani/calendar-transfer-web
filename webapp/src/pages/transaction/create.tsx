@@ -48,38 +48,49 @@ const Create: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      
-      <h1>Realizar transferência</h1>
-      
-      <form onSubmit={handleSubmit}>
 
       <Container>
+      
+      <div className='content'>
 
-        <p>Dados para transferência</p>
-        <br />
+        <div className='container'>
+
+          <h2 className='mb-5'>Realizar transferência</h2>
+
+          <div className='container-box-card'>
+
+          <div className='box-card'>
+
+
+        <form className='form-box-card' onSubmit={handleSubmit}>
+
+        <p>Dados para transação</p>
+       
         
-        <input id="accountFrom" name="accountFrom" type="text" placeholder="Nr Conta de origem" />
+        <input className='input-box-card' id="accountFrom" name="accountFrom" type="text" placeholder="Nr Conta de origem" />
         
-        <br />
-        
-        <input id="accountTo" name="accountTo" type="text" placeholder="Nr Conta de destino" />
+        <input className='input-box-card' id="accountTo" name="accountTo" type="text" placeholder="Nr Conta de destino" />
 
-        <br />
+        <input className='input-box-card' id="vl" name="vl" type="text" placeholder="Valor da transferência" />
 
-        <input id="vl" name="vl" type="text" placeholder="Valor da transferência" />
+        <input className='input-box-card' id="dateTransfer" name="dateTransfer" type="text" placeholder="Data da transferência" />
 
-        <br />
 
-        <input id="dateTransfer" name="dateTransfer" type="text" placeholder="Data da transferência" />
-        
-         <br />
+        <button className='btn-primary' type="submit">Enviar</button>
 
-        <button type="submit">Enviar</button>
-        <br />
-        <Link href={'/transaction/find'}><button>Cancelar</button></Link>
+        <Link href={'/transaction/find'}><button className='btn-outline'>Cancelar</button></Link>
 
-        </Container>
       </form>
+
+      </div>
+
+      </div>
+
+      </div>
+
+      </div>
+
+      </Container>
       
       
     </Container>

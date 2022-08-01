@@ -3,7 +3,6 @@ import Head from '../../../node_modules/next/head'
 import Link from '../../../node_modules/next/link';
 import { Container } from '../../styles/pages/Home'
 
-import Home from '../index'
 import { Transaction } from './transaction';
 
 const Find: React.FC = () => {
@@ -29,32 +28,36 @@ const Find: React.FC = () => {
       </Head>
 
       
-      <h1>Transferências</h1>
       
       <Container>
-        <table>
+
+        <div className='content'>
+
+          <div className='container'>
+
+            <h2 className='mb-5'>Histórico</h2>
+
+          <div className='table-responsive'>
+        <table className='custom-table table table-striped'>
         <thead><tr>
-                <th>Tipo tx</th>
-                <th>Conta (de)</th>
-                <th>Conta (para)</th>
-                <th>Valor</th>
-                <th>Tipo vl</th>
-                <th>Taxa</th>
-                <th>Valor total</th>
-                <th>Data transferência</th>
-                <th>Data solicitada</th>
-                <th>Saldo</th>
+                <th scope="col">Tipo tx</th>
+                <th scope="col">Conta (de)</th>
+                <th scope="col">Conta (para)</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Tipo vl</th>
+                <th scope="col">Taxa</th>
+                <th scope="col">Valor total</th>
+                <th scope="col">Data transferência</th>
+                <th scope="col">Data solicitada</th>
+                <th scope="col">Saldo</th>
             </tr></thead>
 
             <tbody>
                 {data.map(tx => (
                     
-                    <Link href={{pathname:"/transaction/detail", query: {...tx}}}><tr>
-                        <td>
-                        
-                                {tx.transactionType}
-                                
-                        </td>
+                    
+                      <tr>
+                        <td>{tx.transactionType}</td>
                         <td>{tx.accountFrom}</td>
                         <td>{tx.accountTo}</td>
                         <td>{tx.value}</td>
@@ -64,14 +67,26 @@ const Find: React.FC = () => {
                         <td>{tx.dateTransfer}</td>
                         <td>{tx.dateSchedule}</td>
                         <td>{tx.balance}</td>
-                         </tr></Link>
+                        <Link href={{pathname:"/transaction/detail", query: {...tx}}}><td><a className='more'>Detalhes</a></td></Link>
+                         </tr>
                    
                 
                 ))}
             </tbody>
         </table>
-                    <br /><br /><br />
-        <Link href={'/'}><button>Home</button></Link>
+
+        
+        </div>
+        
+        <div className='box-btn' >
+          <Link href={'/'}><button className='btn-outline'>Home</button></Link>
+          <Link href={'/transaction/create'}><button className='btn-primary'>Nova</button></Link>
+        </div>
+        
+        </div>
+
+                    
+        </div>
       </Container>
 
 

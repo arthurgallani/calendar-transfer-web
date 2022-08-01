@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Head from '../../../node_modules/next/head'
+import Link from '../../../node_modules/next/link';
 import { useRouter } from '../../../node_modules/next/router';
+import { CardDetail } from '../../styles/pages/detail';
 
 
 import { Container } from '../../styles/pages/Home'
@@ -33,20 +35,86 @@ const Detail: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Detalhe da transferência</h1>
-      
       <Container>
-        <p>Tipo tx: {data?.transactionType}</p>
-        <p>Conta (de): {data?.accountFrom}</p>
-        <p>Conta (para): {data?.accountTo}</p>
-        <p>Valor: {data?.value}</p>
-        <p>Tipo vl: {data?.valueType}</p>
-        <p>Taxa: {data?.valueTax}</p>
-        <p>Valor total: {data?.sumValue}</p>
-        <p>Data transferência: {data?.dateTransfer}</p>
-        <p>Data solicitada: {data?.dateSchedule}</p>
-        <p>Saldo atual: {data?.balance}</p>
-      </Container>
+
+      <div className='content'>
+
+        <div className='container'>
+
+            <h2>Detalhes da transação</h2>
+
+            <div className='container-box-card'>
+
+              <div className='box-card'>
+
+                <div className='form-box-card'>
+
+<div className='label-box-card'>
+  <p>Tipo da transação:</p>
+  <p className='result'>{data?.transactionType}</p>
+</div> 
+
+<div className='label-box-card'>
+<p> Conta de origem: </p> 
+<p className='result'>{data?.accountFrom}</p>
+</div>
+
+<div className='label-box-card'>
+<p> Conta de destino: </p> 
+<p className='result'>{data?.accountTo}</p>
+</div>
+
+<div className='label-box-card'>
+<p> Valor da transação: </p> 
+<p className='result'>{data?.value}</p>
+</div>
+
+<div className='label-box-card'>
+<p> Tipo do valor: </p> 
+<p className='result'>{data?.valueType}</p>
+</div>
+
+<div className='label-box-card'>
+<p> Taxa cobrada: </p> 
+<p className='result'>{data?.valueTax}</p>
+</div>
+
+<div className='label-box-card'>
+<p> Valor com taxa: </p> 
+<p className='result'>{data?.sumValue}</p>
+</div>
+
+<div className='label-box-card'>
+<p> Data da transferência: </p> 
+<p className='result'>{data?.dateTransfer}</p>
+</div>
+
+<div className='label-box-card'>
+<p> Data da solicitação: </p> 
+<p className='result'>{data?.dateSchedule}</p>
+</div>
+
+<div className='label-box-card'>
+<p> Saldo atual: </p> 
+<p className='result'>{data?.balance}</p>
+</div>
+
+        </div>
+
+        </div>
+
+        <div className='box-btn box-btn-out' >
+          <Link href={'/transaction/find'}><button className='btn-outline'>Voltar</button></Link>
+          <Link href={'/transaction/create'}><button className='btn-primary'>Nova</button></Link>
+        </div>
+
+        </div>
+        
+        </div>
+
+        </div>
+
+        </Container>
       
     </Container>
 

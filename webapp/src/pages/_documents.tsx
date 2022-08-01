@@ -41,11 +41,11 @@ export default class MyDocument extends Document {
           <meta charSet='utf-8'/>
 
           <link href="https://fonts.googleapis.com/css2?family=Poppins:400,500,700" rel="stylesheet" />
-
-        </Head>
+           </Head>
         <body>
-          <Main />
-          <NextScript />
+          <Main />  
+          <NextScript>
+             </NextScript>
         </body>
       </Html>
     );
